@@ -7,11 +7,11 @@ double kitai(int jotai[][4]);
 
 int main()
 {
-	int jotai[23][4];//Œ©–{
+	int jotai[23][4];//è¦‹æœ¬
 	int i, j, k;
 
 	do {
-		cout << "0‚ÍŠú‘Ò’lA1‚Í©•ª‚Ì‘f“_A2‚Í‘Šè‚Ì‘f“_" << endl;
+		cout << "0ã¯æœŸå¾…å€¤ã€1ã¯è‡ªåˆ†ã®ç´ ç‚¹ã€2ã¯ç›¸æ‰‹ã®ç´ ç‚¹" << endl;
 		cin >> k;
 		if (k == 0 || k == 1 || k == 2) {
 			FILE *fp;
@@ -19,7 +19,7 @@ int main()
 			fp = fopen("test.txt", "r");
 
 			if (fp == NULL) {
-				printf("ƒtƒ@ƒCƒ‹‚ª‚ ‚è‚Ü‚¹‚ñ\n");
+				printf("ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚Šã¾ã›ã‚“\n");
 				return -1;
 			}
 

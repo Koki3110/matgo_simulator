@@ -1,4 +1,4 @@
-// hanahuda2.cpp : �R���\�[�� �A�v���P�[�V�����̃G���g�� �|�C���g���`���܂��B
+// hanahuda2.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
 //
 
 #include"stdafx.h"
@@ -10,7 +10,7 @@ using namespace  std;
 double kitai(int jotai[][4]);
 double hanten(int jotai[][4]);
 
-//�^�ʖڃo�[�W������6�t�F�C�Y��
+//真面目バージョン改6フェイズ版
 template < class BidirectionalIterator >
 bool next_combination(BidirectionalIterator first1,
 	BidirectionalIterator last1,
@@ -392,7 +392,7 @@ int eneque(int jotai[][4], int n) {
 	break;
 	default:
 	{
-		cout << "�_���݂����ł���" << endl;
+		cout << "ダメみたいですね" << endl;
 	}
 	break;
 	}
@@ -666,7 +666,7 @@ double kitai(int jotai[][4]) {
 						douteki[k][21][3] = kariban;
 					}
 				}
-				//����
+				//ここ
 			}
 			else {
 				loopcount = jotai[20][3];
@@ -770,7 +770,7 @@ double kitai(int jotai[][4]) {
 										douteki[k][0][i] = 1;
 									}
 								}
-								//�����ɑS����
+								//ここに全消し
 								int bacount = 0;
 								for (i = 0; i < 13; i++) {
 									for (j = 0; j < 4; j++) {
@@ -900,7 +900,7 @@ double kitai(int jotai[][4]) {
 							else {
 								douteki[k][ytuki][yban] = 1;
 							}
-							//�S�����ƕ��߂�
+							//全消しと分捕り
 							if (douteki[k][20][1] != 0) {
 								int bacount = 0;
 								for (i = 0; i < 13; i++) {
@@ -1130,7 +1130,7 @@ double kitai(int jotai[][4]) {
 
 
 					}
-					//�I���\����Ɗ��Ғl�v�Z�̓t�F�C�Y2��
+					//終了可能判定と期待値計算はフェイズ2で
 
 
 				}
@@ -1157,7 +1157,7 @@ double kitai(int jotai[][4]) {
 		else
 		{
 			re = tensukansu(jotai, 1);
-			cout << "�R�D�������R�D�t�F�C�Y" << endl;
+			cout << "山札が無い山札フェイズ" << endl;
 		}
 	}
 	break;
@@ -1202,10 +1202,10 @@ double kitai(int jotai[][4]) {
 	}
 	break;
 
-	case 3://�ǂ����Ɍ�T�[�����Z����
+	case 3:
 	{
 		if (jotai[20][2] == 0) {
-			cout << "����̎�D�̂Ȃ�����̎�D�t�F�C�Y" << endl;
+			cout << "相手の手札のない相手の手札フェイズ" << endl;
 			re = tensukansu(jotai, 1);
 		}
 		else {
@@ -1344,7 +1344,7 @@ double kitai(int jotai[][4]) {
 					}
 					k++;
 				} while (next_combination(data.begin(), data.begin() + t, data.end()));
-				/*A��for (i = 0; i < sousu; i++) {
+				/*A案for (i = 0; i < sousu; i++) {
 				for (l = 0; l < tukisu; l++) {
 				for (m = 0; m < 4; m++) {
 				douteki[i][l][m] = jotai[l][m];
@@ -1411,7 +1411,7 @@ double kitai(int jotai[][4]) {
 				}
 				}
 				}
-				douteki[k][18][0] = 1;//3.����̎�D�����̏I��
+				douteki[k][18][0] = 1;//3.相手の手札分けの終了
 				}*/
 				//tuika
 				for (k = 0; k < sousu; k++) {
@@ -1427,7 +1427,7 @@ double kitai(int jotai[][4]) {
 						douteki3[0][i][j] = jotai[i][j];
 					}
 				}
-				jotai[18][0] = 2;//3.����̎�D�����̏I��
+				jotai[18][0] = 2;//3.相手の手札分けの終了
 				douteki[0][18][0] = 2;
 			}
 
@@ -1543,7 +1543,7 @@ double kitai(int jotai[][4]) {
 			delete[] p;
 			delete[] douteki;
 			delete[] douteki3;
-			//�����܂�
+			//ここまで
 		}
 	}
 	break;
@@ -1695,7 +1695,7 @@ double kitai(int jotai[][4]) {
 										}
 									}
 
-									//�����ɑS����
+									//ここに全消し
 									int bacount = 0;
 									for (i = 0; i < 13; i++) {
 										for (j = 0; j < 4; j++) {
@@ -1832,7 +1832,7 @@ double kitai(int jotai[][4]) {
 									doutekip4[kp4][ytuki][yban] = 2;
 								}
 
-								//�S�����ƕ��߂�
+								//全消しと分捕り
 								if (doutekip4[kp4][20][2] != 0) {
 									int bacount = 0;
 									for (i = 0; i < 13; i++) {
@@ -2044,7 +2044,7 @@ double kitai(int jotai[][4]) {
 
 
 						}
-						//�I���\����Ɗ��Ғl�v�Z�̓t�F�C�Y2��
+						//終了可能判定と期待値計算はフェイズ2で
 						doutekip4[kp4][19][3] = 5;
 						rekp4sum += kitai(doutekip4[kp4]);
 					}
@@ -2062,7 +2062,7 @@ double kitai(int jotai[][4]) {
 			else
 			{
 				re = (-1)* tensukansu(jotai, 2);
-				cout << "�R�D�������R�D�t�F�C�Y" << endl;
+				cout << "山札が無い山札フェイズ" << endl;
 			}
 		}
 	}
@@ -2078,7 +2078,7 @@ double kitai(int jotai[][4]) {
 				jotai[17][0] += 1;
 				jotai[19][1] = tenj4 + 1;
 				jotai[19][3] = 3;
-				//douteki���쐬
+				//doutekiを作成
 
 				if (hanten(jotai) > tenj2) {
 					jotai[19][3] = 6;
@@ -2090,7 +2090,7 @@ double kitai(int jotai[][4]) {
 
 				/*double koica = kitai(jotai);//moso
 				if (koica < rekp4sum) {
-				rekp4sum = koica;//�Čv�Z
+				rekp4sum = koica;//再計算
 				}*/
 
 			}
@@ -2144,7 +2144,7 @@ double kitai(int jotai[][4]) {
 					}
 				}
 				douteki[k][20][1] -= 1;
-				douteki[k][19][3] = 1;//1..���͎��^�[���R�D�t�F�C�Y
+				douteki[k][19][3] = 1;//1..次は自ターン山札フェイズ
 				douteki[k][21][0] = karituki;
 				douteki[k][21][1] = kariban;
 			}
@@ -2214,13 +2214,13 @@ double kitai(int jotai[][4]) {
 
 		else
 		{
-			cout << "��D�̂Ȃ���D�t�F�C�Y" << endl;
+			cout << "手札のない手札フェイズ" << endl;
 			re = tensukansu(jotai, 1);
 		}
 	}
 	break;
 	}
-	//cout << "�Ԃ��l" << re << endl;
+	//cout << "返す値" << re << endl;
 	return re;
 }
 
@@ -2241,7 +2241,7 @@ int que(int jotai[][4], int n) {
 	break;
 	default:
 	{
-		cout << "�_���݂����ł���" << endl;
+		cout << "ダメみたいですね" << endl;
 	}
 	break;
 	}
